@@ -1,4 +1,4 @@
-package sort.Insertion;
+package Algorithms.sort.Insertion;
 
 import java.io.*;
 import java.util.*;

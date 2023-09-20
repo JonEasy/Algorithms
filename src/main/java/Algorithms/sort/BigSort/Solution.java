@@ -1,8 +1,8 @@
-package sort.BigSort;
+package Algorithms.sort.BigSort;
 
 import java.io.*;
 import java.util.*;
-import sort.BigSort.Result;
+// import sort.BigSort.Result;
 
 //class Result {
 //    public static List<String> bigSorting(List<String> unsorted) {

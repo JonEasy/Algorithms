@@ -1,4 +1,7 @@
-package sort.BigSort
+package Algorithms.sort.BigSort;
+
+import java.util.Comparator;
+import java.util.List;
 
 class Result {
     public static List<String> bigSorting(List<String> unsorted) {

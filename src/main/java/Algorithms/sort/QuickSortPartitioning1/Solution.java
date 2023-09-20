@@ -1,5 +1,5 @@
 
-package sort.QuickSortPartitioning1;
+package Algorithms.sort.QuickSortPartitioning1;
 import java.io.*;
 import java.util.*;
 import java.util.stream.*;
