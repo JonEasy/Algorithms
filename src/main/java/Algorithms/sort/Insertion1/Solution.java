@@ -3,35 +3,6 @@ package Algorithms.sort.Insertion1;
 import java.io.*;
 import java.util.*;
 
-class Result {
-
-    /*
-     * Complete the 'insertionSort1' function below.
-     *
-     * The function accepts following parameters:
-     *  1. INTEGER n
-     *  2. INTEGER_ARRAY arr
-     */
-
-    public static void insertionSort1(int n, List<Integer> arr) {
-
-        int elementSort = arr.get(n-1);
-        //System.out.println("Element sort is " + elementSort);
-        for (int i=n-2; i>=0; i--) {
-            //System.out.println("Current index is " + i + " with element " + arr.get(i) + " and element sort is " + elementSort);
-            if (arr.get(i)<=elementSort) {
-                arr.set(i+1,  elementSort);
-                break;
-            }
-            arr.set(i+1, arr.get(i));
-            for (int index=0; index<n; index++) {
-                System.out.print(arr.get(index) + " ");
-            }
-            System.out.println();
-        }
-        if (arr.get(0)>elementSort) {
-            arr.set(0, elementSort);
-        }
 
 public class Solution {
     static class Result {
