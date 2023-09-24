@@ -17,22 +17,26 @@ public class Solution {
          * The function accepts INTEGER_ARRAY arr as parameter.
          */
 
-        public static List<Integer> countSort(List<List<Integer>> arr) {
+        public static void countSort(List<List<String>> arr) {
           // Write your code here
-           
-          // List<Integer> arrElements = new ArrayList<>(Collections.nCopies(100,0));
-          // for (int index=0; index<arr.size();index++){
-          //   int element = arr.get(index);
-          //   arrElements.set(element, arrElements.get(element)+1);  
-          // }
-          // List<Integer> sortedElements = new ArrayList<>();
-          // for (int index = 0; index < arrElements.size(); index++) {
-          //   int value = arrElements.get(index);
-          //   for (int j = 0; j < value; j++) {            
-          //     sortedElements.add(index);
-          //   } 
-          // }
-          // return sortedElements;
+          int halfSize = arr.size()/2;
+          List<List<String>> result = Stream.generate(ArrayList<String>::new).limit(100).collect(Collectors.toList());
+          for (int index=0;index<arr.size();index++){
+            // String number = arr.get(index).get(0);
+            String value = arr.get(index).get(1);
+            int pos = Integer.parseInt(arr.get(index).get(0));
+        
+            if (index<halfSize) {
+              result.get(pos).add("-");
+            } else {
+              result.get(pos).add(value);
+            }
+            
+          } 
+          // result.forEach(s -> System.out.println(s));
+          System.out.println(result.stream().map(item -> String.join(" ", item)).collect(Collectors.joining(" ")).trim());
+      
+          return ;
 
         }
 
@@ -46,16 +50,17 @@ public class Solution {
       IntStream.range(0,n).forEach(i -> {
       
         try {
-          arr.add(Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(""))
+          arr.add(Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
           .collect(toList())
         );
         } catch (IOException e) {
           // TODO: handle exception
-          throw new RuntimeException(e);
+          throw new RuntimeException();
+
         
         }
 
-    });
+      });
 
 
       Result.countSort(arr);
