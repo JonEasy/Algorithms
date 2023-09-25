@@ -20,22 +20,29 @@ public class Solution {
         public static void countSort(List<List<String>> arr) {
           // Write your code here
           int halfSize = arr.size()/2;
-          List<List<String>> result = Stream.generate(ArrayList<String>::new).limit(100).collect(Collectors.toList());
+          // List<Integer> arrElements = new ArrayList<>(Collections.nCopies(100))
+          HashMap<Integer,StringBuilder> result = new HashMap<>();
+          // List<List<String>> result = Stream.generate(ArrayList<String>::new).limit(100).collect(Collectors.toList());
           for (int index=0;index<arr.size();index++){
             // String number = arr.get(index).get(0);
-            String value = arr.get(index).get(1);
-            int pos = Integer.parseInt(arr.get(index).get(0));
-        
-            if (index<halfSize) {
-              result.get(pos).add("-");
-            } else {
-              result.get(pos).add(value);
-            }
+            StringBuilder word = new StringBuilder(arr.get(index).get(1));
+            // int pos = Integer.parseInt(arr.get(index).get(0));
+            // StringBuilder word = new StringBuilder(" ");
+            if (index < halfSize) word = new StringBuilder("-");
+            if (!result.containsKey(index)){
+              result.put(index,new StringBuilder()); 
+            }         
+            StringBuilder appendWord = word.append(" ");
+            result.get(index).append(appendWord);
             
           } 
           // result.forEach(s -> System.out.println(s));
-          System.out.println(result.stream().map(item -> String.join(" ", item)).collect(Collectors.joining(" ")).trim());
-      
+          // System.out.println(result.stream().map(item -> String.join(" ", item)).collect(Collectors.joining(" ")).trim());
+        
+          for (Integer index: result.keySet()){
+            String sentence = result.get(index).toString();
+            System.out.print(sentence);
+      }      
           return ;
 
         }
